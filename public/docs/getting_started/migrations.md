@@ -126,6 +126,8 @@ From here, you can create new migrations with increasing numbered prefixes to de
 
 Your migration files will use the deployer to stage deployment tasks. As such, you can write deployment tasks synchronously and they'll be executed in the correct order:
 
+你的迁移文件将会用于部署任务。因此，你可以同步写入部署任务，他们会按正确顺序执行。
+
 ```javascript
 // Stage deploying A before B
 deployer.deploy(A);
@@ -133,6 +135,8 @@ deployer.deploy(B);
 ```
 
 Alternatively, each function on the deployer can be used as a Promise, to queue up deployment tasks that depend on the execution of the previous task:
+
+或者，每个在 deployer 上的函数被用来作为一个 Promise，排队等候前一个任务执行完再执行新的部署任务。
 
 ```javascript
 // Deploy A, then deploy B, passing in A's newly deployed address
@@ -163,6 +167,8 @@ module.exports = function(deployer, network) {
 
 Migrations are also passed the list of accounts provided to you by your Ethereum client and web3 provider, for you to use during your deployments. This is the exact same list of accounts returned from `web3.eth.getAccounts()`.
 
+迁移也会通过你的 Ethereum 客户端和 web3 接口传递 accounts 给你，供部署期间使用。这与从 `web3.eth.getAccounts()` 得到的经过非常相似。
+
 ```javascript
 module.exports = function(deployer, network, accounts) {
   // Use the accounts within your migrations.
@@ -172,6 +178,8 @@ module.exports = function(deployer, network, accounts) {
 # Deployer API
 
 The deployer contains many functions available to simplify your migrations.
+
+deployer 包含许多可以简化迁移的函数。
 
 ### deployer.deploy(contract, args..., options)
 
@@ -213,6 +221,8 @@ deployer.deploy(SomeDependency, {overwrite: false});
 
 Link an already-deployed library to a contract or multiple contracts. `destinations` can be a single contract or an array of multiple contracts. If any contract within the destination doesn't rely on the library being linked, the deployer will ignore that contract.
 
+link 一个已经部署的库到一个合约或多个合约。 `destinations` 可以作为一个单一合约或一组多个合约。如果在目标(destination)中的任意合约没有依赖被链接的库，deployer将会忽略那个目标合约。
+
 Example:
 
 ```javascript
@@ -228,6 +238,8 @@ deployer.link(LibA, [B, C, D]);
 ### deployer.then(function() {...})
 
 Just like a promise, run an arbitrary deployment step. Use this to call specific contract functions during your migration to add, edit and reorganize contract data.
+
+就像一个 promise，运行一个任意的部署步骤。在你迁移来增加、修改、和重组合约数据时，使用这个方法来呼叫指定合约函数。
 
 Example:
 
