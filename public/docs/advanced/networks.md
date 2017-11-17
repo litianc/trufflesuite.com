@@ -18,9 +18,13 @@ $ truffle migrate --network live
 
 In this example, Truffle will run your migrations on the "live" network, which -- if configured like [the example](/docs/advanced/configuration#networks) -- is associated with the public Ethereum blockchain.
 
+这个例子中，Truffle 将会运行在 “live” 网络上，如果像[举例](/docs/advanced/configuration#networks) -- 将会结合在以太坊公有链上。
+
 # Build Artifacts
 
 As mentioned in the [Compiling contracts](/docs/getting_started/compile) section, build artifacts are stored in the `./build/contracts` directory as `.json` files. When you compile your contracts or run your migrations using a specific network, Truffle will update those `.json` files so they contain the information related to that network. When those artifacts are used later -- such as within your frontend or application via [truffle-contract](https://github.com/trufflesuite/truffle-contract) -- they'll automatically detect which network the Ethereum client is connected to and use the correct contract artifacts accordingly.
+
+正如 [Compiliing contract](/docs/getting_started/compile) 章节中，Build artifacts 将作为 `.json` 文件存储在  `./build/contracts`。当用指定网络编译你的合约或运行迁移时，Truffle 会更新这些 `.json` 文件以至于他们包含于网络相关的信息。当这些 artifacts 之后被使用 -- 例如通过 [truffle-contract](https://github.com/trufflesuite/truffle-contract) 在你的前端或应用程序 -- 他们会自动检测 Ethereum 客户端连接在哪个网络上，并以此依据使用正确的合约 artifact。
 
 # Application Deployment
 
