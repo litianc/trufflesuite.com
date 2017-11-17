@@ -31,7 +31,10 @@ Note that the filename is prefixed with a number and is suffixed by a descriptio
 
 At the beginning of the migration, we tell Truffle which contracts we'd like to interact with via the `artifacts.require()` method. This method is similar to Node's `require`, but in our case it specifically returns a contract abstraction that we can use within the rest of our deployment script. The name specified should match **the name of the contract definition** within that source file. Do not pass the name of the source file, as files can contain more than one contract.
 
+在迁移前部，我们告诉 Truffle 哪个合约会用来和 `artifacts.require()` 交互。这种方法类似 Node 的 `require`，但我们的情况，它专门用来返回合约的抽象，我们能用在其余部署脚本中的合约抽象。名称指定应与原文件中 **合约定义的名称** 匹配。当文件包含不只一个合约时，切勿传递原文件的名称。
+
 Consider this example where two contracts are specified within the same source file:
+下面的例子中，两个合约将在原文件中被指派：
 
 Filename: `./contracts/Contracts.sol`
 
@@ -61,7 +64,11 @@ var ContractTwo = artifacts.require("ContractTwo");
 
 ### module.exports
 
-All migrations must export a function via the `module.exports` syntax. The function exported by each migration should accept a `deployer` object as its first parameter. This object aides in deployment by both providing a clear syntax for deploying smart contracts as well as performing some of deployment's more mundane duties, such as saving deployed artifacts for later use. The `deployer` object is your main interface for staging deployment tasks, and its API is described at the bottom of this page.
+All migrations must export a function via the `module.exports` syntax. The function exported by each migration should accept a `deployer` object as its first parameter. This object aides in deployment by both providing a clear syntax for deploying smart contracts as well as performing some of deployment's more mundane duties, such as saving deployed artifacts for later use. The `deployer` object is your main interface for staging deployment tasks, and its API is  described at the bottom of this page.
+
+所有的迁移必须通过 `module.exports` 输出一个函数。由迁移输出的函数应被 `deployer` 实体作为它的第一个参数接收。
+
+**这个部署在实体（未译完）**
 
 Your migration function can accept other parameters as well. See the examples below.
 
