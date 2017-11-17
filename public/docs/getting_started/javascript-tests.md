@@ -2,6 +2,8 @@
 
 Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](http://chaijs.com/) for assertions to provide you with a solid framework from which to write your Javascript tests. Let's dive in and see how Truffle builds on top of Mocha to make testing your contracts a breeze.
 
+Truffle 使用 [Mocha](https://mochajs.org/) 测试框架和 [Chai](http://chaijs.com/) 来提供一个 solid 框架，在这个框架中来写你的 Javascript 测试。让我们来看看 truffle 如何建立在 Mocha 上，并让你测试合约变得如沐春风。
+
 Note: If you're unfamiliar with writing unit tests in Mocha, please see [Mocha's documentation](https://mochajs.org/) before continuing.
 
 ### Use contract() instead of describe()
