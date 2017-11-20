@@ -2,11 +2,19 @@
 
 If you were writing raw requests to the Ethereum network yourself in order to interact with your contracts, you'd soon realize that writing these requests is clunky and cumbersome. As well, you might find that managing the state each request you've made is _complicated_. Fortunately, Truffle takes care of this complexity for you, to make interacting with your contracts a breeze.
 
+如果为了与合约互动，你在写到 Ethereum 的原始请求，你将很快理解写请求时多么繁重。你也许找到管理状态的每次请求是复杂的。幸运的是，Truffle 帮助你解决这个复杂的问题，来使得与合约互动变得轻而易举。
+
 # Reading & Writing Data
+
+# 读/写数据
 
 The Ethereum network makes a distinction between writing data to the network and reading data from it, and this distinction plays a significant part in how you write your application. In general, writing data is called a **transaction** whereas reading data is called a **call**. Transactions and calls are treated very differently, and have the following characteristics.
 
+Ethereum 在写数据和读数据是不同的，这个不同显著体现在你如何写你的应用。通常来说，写数据叫做 **交易(transaction)** 读数据叫做 **呼叫（call）** 。交易和呼叫将被不同对待。
+
 ### Transactions
+
+### 交易
 
 Transactions fundamentally change the state of the network. A transaction can be as simple as sending Ether to another account, or as complicated as executing a contract function or adding a new contract to the network. The defining characteristic of a transaction is that it writes (or changes) data. Transactions cost Ether to run, known as "gas", and transactions take time to process. When you execute a contract's function via a transaction, you cannot receive that function's return value because the transaction isn't processed immediately. In general, functions meant to be executed via a transaction will not return a value; they will return a transaction id instead. So in summary, transactions:
 
@@ -16,6 +24,8 @@ Transactions fundamentally change the state of the network. A transaction can be
 * Won't expose a return value (only a transaction id).
 
 ### Calls
+
+### 呼叫
 
 Calls, on the other hand, are very different. Calls can be used to execute code on the network, though no data will be permanently changed. Calls are free to run, and their defining characteristic is that they read data. When you execute a contract function via a call you will receive the return value immediately. In summary, calls:
 
