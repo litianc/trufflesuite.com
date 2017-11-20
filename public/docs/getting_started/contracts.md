@@ -4,17 +4,13 @@ If you were writing raw requests to the Ethereum network yourself in order to in
 
 如果为了与合约互动，你在写到 Ethereum 的原始请求，你将很快理解写请求时多么繁重。你也许找到管理状态的每次请求是复杂的。幸运的是，Truffle 帮助你解决这个复杂的问题，来使得与合约互动变得轻而易举。
 
-# Reading & Writing Data
-
-# 读/写数据
+# Reading & Writing Data 读/写数据
 
 The Ethereum network makes a distinction between writing data to the network and reading data from it, and this distinction plays a significant part in how you write your application. In general, writing data is called a **transaction** whereas reading data is called a **call**. Transactions and calls are treated very differently, and have the following characteristics.
 
 Ethereum 在写数据和读数据是不同的，这个不同显著体现在你如何写你的应用。通常来说，写数据叫做 **交易(transaction)** 读数据叫做 **呼叫（call）** 。交易和呼叫将被不同对待。
 
-### Transactions
-
-### 交易
+### Transactions 交易
 
 Transactions fundamentally change the state of the network. A transaction can be as simple as sending Ether to another account, or as complicated as executing a contract function or adding a new contract to the network. The defining characteristic of a transaction is that it writes (or changes) data. Transactions cost Ether to run, known as "gas", and transactions take time to process. When you execute a contract's function via a transaction, you cannot receive that function's return value because the transaction isn't processed immediately. In general, functions meant to be executed via a transaction will not return a value; they will return a transaction id instead. So in summary, transactions:
 
@@ -23,9 +19,7 @@ Transactions fundamentally change the state of the network. A transaction can be
 * Aren't processed immediately
 * Won't expose a return value (only a transaction id).
 
-### Calls
-
-### 呼叫
+### Calls 呼叫
 
 Calls, on the other hand, are very different. Calls can be used to execute code on the network, though no data will be permanently changed. Calls are free to run, and their defining characteristic is that they read data. When you execute a contract function via a call you will receive the return value immediately. In summary, calls:
 
@@ -36,11 +30,17 @@ Calls, on the other hand, are very different. Calls can be used to execute code 
 
 Choosing between a transaction and a call is as simple as deciding whether you want to read data, or write it.
 
-# Introducing Abstractions
+选择交易或是呼叫的原则非常简单，就是写或读数据。
+
+# Introducing Abstractions 介绍抽象
 
 Contract abstractions are the bread and butter of interacting with Ethereum contracts from Javascript. In short, contract abstractions are wrapper code that makes interaction with your contracts easy, in a way that lets you forget about the many engines and gears executing under the hood. Truffle uses its own contract abstraction via the [truffle-contract](https://github.com/trufflesuite/truffle-contract) module, and it is this contract abstraction that's described below.
 
+合约抽象是用 Javascript 与 Ethereum 合约互动的必需品。简单来说，合约抽象包装了与合约轻松互动的代码，这种方式让你可以忽略许多引擎罩下面的引擎和齿轮。Truffle 通过 [truffle-contract](https://github.com/trufflesuite/truffle-contract) 模块来使用它的合约抽象，以下是合约抽象的描述。
+
 In order to appreciate the usefulness of a contract abstraction, however, we first need a contract to talk about. We'll use the MetaCoin contract provided for you by default via `truffle init`.
+
+为了领会合约抽象的作用，我们首先需要用一个合约来讨论。我们先用 MetaCoin 合约来讨论。
 
 ```javascript
 pragma solidity ^0.4.2;
