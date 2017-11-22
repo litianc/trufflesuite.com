@@ -212,7 +212,7 @@ We will look at the following issues:
 * No error, but a function isn't operating as desired
 
 
-### Issue #1: An infinite loop
+### Issue #1: An infinite loop 问题1：无限循环
 
 On the Ethereum blockchain, transactions cannot be set to run forever.
 
@@ -384,9 +384,11 @@ Truffle contains a built-in debugger. The command to launch this is `debug <Tran
 1. Type `q` to exit the debugger.
 
 
-### Issue #2: An invalid error check
+### Issue #2: An invalid error check 问题2：不合法的错误校验
 
 Smart contracts can use statements like `assert()` to ensure that certain conditions are met. These can conflict with the state of the contract in ways that are irreconcilable.
+
+智能合约可以使用如 `assert()` 声明来保证条件符合。这些与合约的状态的冲突在某种方式上是不可调和的。
 
 Here we will introduce such a condition, and then see how the debugger can find it.
 
@@ -481,7 +483,7 @@ Just as before, we'll reset the contract on the blockchain.
    **It is this last event that is triggering the error.** You can see that it is the `assert()` that is to blame.
 
 
-### Issue #3: A function isn't operating as desired
+### Issue #3: A function isn't operating as desired 问题3：函数没有按期望被操作
 
 Sometimes, an error isn't a true error, in that it doesn't cause a problem at runtime, but instead is just doing something that you don't intend it to do.
 
