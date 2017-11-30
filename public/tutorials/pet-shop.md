@@ -279,8 +279,13 @@ Truffle is very flexible when it comes to smart contract testing, in that tests 
 We start the contract off with 3 imports:
 
 * `Assert.sol`: Gives us various assertions to use in our tests. In testing, **an assertion checks for things like equality, inequality or emptiness to return a pass/fail** from our test. [Here's a full list of the assertions included with Truffle](https://github.com/trufflesuite/truffle-core/blob/master/lib/testing/Assert.sol).
+* `Assert.sol`：在测试中，给我们各种各样的断言。在测试时，**像相等、不等、或无知，来返回 pass/fail**。[这里列出了 Truffle 的完整断言](https://github.com/trufflesuite/truffle-core/blob/master/lib/testing/Assert.sol)。
+
 * `DeployedAddresses.sol`: When running tests, Truffle will deploy a fresh instance of the contract being tested to the TestRPC. This smart contract gets the address of the deployed contract.
+* `DeployedAddresses.sol`: 当运行测试时，Truffle 将部署一个新的合约实例。这个智能合约有部署的合约地址。
+
 * `Adoption.sol`: The smart contract we want to test.
+* `Adoption.sol`: 待测试的智能合约。
 
 <p class="alert alert-info">
   <strong>Note</strong>: The first two imports are referring to global Truffle files, not a `truffle` directory. You should not see a `truffle` directory inside your `test/` directory.
@@ -307,11 +312,16 @@ To test the `adopt()` function, recall that upon success it returns the given `p
 
 Things to notice:
 
-* We call the smart contract we declared earlier with the ID of `8`.
-* We then declare an expected value of `8` as well.
-* Finally, we pass the actual value, the expected value and a failure message (which gets printed to the console if the test does not pass) to `Assert.equal()`.
+注意事项： 
 
-### Testing retrieval of a single pet's owner
+* We call the smart contract we declared earlier with the ID of `8`.
+* 我们可以提前定好 ID 的值 `8`。
+* We then declare an expected value of `8` as well.
+* 我们然后声明一个期望的值 `8`。
+* Finally, we pass the actual value, the expected value and a failure message (which gets printed to the console if the test does not pass) to `Assert.equal()`.
+* 最后，我们传递真实的值，期望值进行对比，以及未通过的提示文字。
+
+### Testing retrieval of a single pet's owner 测试检索 pet 的主人
 
 Remembering from above that public variables have automatic getter methods, we can retrieve the address stored by our adoption test above. Stored data will persist for the duration of our tests, so our adoption of pet `8` above can be retrieved by other tests.
 
@@ -379,6 +389,8 @@ Note the **memory** attribute on `adopters`. The memory attribute tells Solidity
 
      3 passing (670ms)
    ```
+
+**mark**
 
 ## Creating a user interface to interact with the smart contract
 
